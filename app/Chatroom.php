@@ -10,12 +10,15 @@ class Chatroom extends Model
         'cover_img','password','description','link','admin_id'
     ];
 
+    protected $table = "chatrooms";
+
 
     public function messages(){
         return $this->hasMany('App\Message');
     }
 
     public function chatusers(){
-        $this->belongsToMany('App\ChatUser');
+        return $this->belongsToMany('App\ChatUser','chatuser_chatroom','chatroom_id','chatuser_id');
     }
 }
+

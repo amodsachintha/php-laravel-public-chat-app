@@ -10,6 +10,8 @@ class Message extends Model
         'chatroom_id','user_id','content'
     ];
 
+    protected $table = "messages";
+
     public function chatUser(){
         return $this->belongsTo('App\ChatUser');
     }

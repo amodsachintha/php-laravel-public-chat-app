@@ -16,8 +16,8 @@ class CreateChatroomsTable extends Migration
         Schema::create('chatrooms', function (Blueprint $table) {
             $table->integer('id',true,true);
             $table->string('password');
-            $table->string('cover_img');
-            $table->string('description');
+            $table->string('cover_img')->nullable()->default('default_cover.png');
+            $table->string('description')->nullable();
             $table->string('link');
             $table->integer('admin_id',false,true);
             $table->timestamps();

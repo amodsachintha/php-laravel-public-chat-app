@@ -16,8 +16,8 @@ class CreateChatUsersTable extends Migration
         Schema::create('chatusers', function (Blueprint $table) {
             $table->integer('id',true,true);
             $table->string('name');
-            $table->string('avatar');
-            $table->string('about');
+            $table->string('avatar')->nullable()->default("default.png");
+            $table->string('about')->nullable();
             $table->timestamps();
 
             $table->engine='InnoDB';

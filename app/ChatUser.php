@@ -3,7 +3,6 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Parse\ParseClient;
 
 class ChatUser extends Model
 {
@@ -11,13 +10,17 @@ class ChatUser extends Model
       'name','avatar','about'
     ];
 
+    protected $table = "chatusers";
+
 
     public function messages(){
         return $this->hasMany('App\Message');
     }
 
     public function chatrooms(){
-        $this->belongsToMany('App\Chatroom');
+        return $this->belongsToMany('App\Chatroom','chatuser_chatroom','chatuser_id','chatroom_id');
     }
+
+
 
 }
