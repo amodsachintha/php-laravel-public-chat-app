@@ -11,8 +11,9 @@ class Message extends Model
     ];
 
     protected $table = "messages";
+    protected $primaryKey = "id";
 
-    public function chatUser(){
+    public function chatuser(){
         return $this->belongsTo('App\ChatUser');
     }
 

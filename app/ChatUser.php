@@ -11,7 +11,7 @@ class ChatUser extends Model
     ];
 
     protected $table = "chatusers";
-
+    protected $primaryKey = "id";
 
     public function messages(){
         return $this->hasMany('App\Message');

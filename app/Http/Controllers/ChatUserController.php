@@ -6,6 +6,7 @@ use App\Http\Requests\StoreChatUser;
 use Faker\Provider\Image;
 use Illuminate\Http\Request;
 use App\ChatUser;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Cookie;
 
 class ChatUserController extends Controller
@@ -13,7 +14,7 @@ class ChatUserController extends Controller
 
     public function getAllChatUsers()
     {
-        return ChatUser::all();
+        return response()->json(ChatUser::all());
     }
 
     public function store(StoreChatUser $request) // create
@@ -24,7 +25,7 @@ class ChatUserController extends Controller
             'avatar' => $request->get('avatar')
         ]);
 
-        setcookie("chatuserid", $chatUser->id, time() + 86400, "/");
+        setcookie("chatuserid", $chatUser->id, time() + 86400*365, "/");
 
         return redirect('/chatusers/store')->with('status', 'User ' . $chatUser->name . ' added Successfully! You can login now!');
     }

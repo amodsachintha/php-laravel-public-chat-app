@@ -37,4 +37,19 @@ Route::get('/chatrooms/messages/{id}', function ($id) {
     }
 });
 
+Route::get('/chat',function (){
+
+    $chatroom = new App\Chatroom([
+        'password' => '1234',
+        'admin_id' => 2,
+        'cover_img' => 'default_cover.png',
+        'description' => 'Testing',
+        'link' => str_random(8)
+    ]);
+
+   return view('chat',['id'=>1,'title'=>$chatroom->description]);
+});
+
+
+Route::post('/chat/endpoint', 'MessageController@store');
 
