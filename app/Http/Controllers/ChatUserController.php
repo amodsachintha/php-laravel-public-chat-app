@@ -14,7 +14,7 @@ public function getAllChatUsers(){
 }
 
 public function store(StoreChatUser $request){
-    
+
     $chatUser = new ChatUser();
     $chatUser->name = $request->get('name');
     $chatUser->about = $request->get('about');
