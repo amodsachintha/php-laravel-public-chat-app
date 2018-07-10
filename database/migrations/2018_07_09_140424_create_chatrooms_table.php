@@ -14,13 +14,15 @@ class CreateChatroomsTable extends Migration
     public function up()
     {
         Schema::create('chatrooms', function (Blueprint $table) {
-            $table->mediumIncrements('id');
+            $table->integer('id',true,true);
             $table->string('password');
             $table->string('cover_img');
             $table->string('description');
             $table->string('link');
-            $table->mediumInteger('admin_id')->nullable();
+            $table->integer('admin_id',false,true);
             $table->timestamps();
+
+            $table->engine='InnoDB';
         });
     }
 

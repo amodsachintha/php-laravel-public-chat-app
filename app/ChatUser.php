@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Parse\ParseClient;
 
 class ChatUser extends Model
 {
@@ -13,6 +14,10 @@ class ChatUser extends Model
 
     public function messages(){
         return $this->hasMany('App\Message');
+    }
+
+    public function chatrooms(){
+        $this->belongsToMany('App\Chatroom');
     }
 
 }

@@ -18,7 +18,7 @@ Route::get('/chatusers/store',function (){
     return view('addChatUser');
 });
 Route::get('/chatrooms/assoc',function (){
-    return App\Chatroom::first()->associations()->first();
+
 });
 
 Route::post('/chatusers/store','ChatUserController@store');

@@ -13,12 +13,14 @@ class CreateChatUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('chat_users', function (Blueprint $table) {
-            $table->mediumIncrements('id');
+        Schema::create('chatusers', function (Blueprint $table) {
+            $table->integer('id',true,true);
             $table->string('name');
             $table->string('avatar');
             $table->string('about');
             $table->timestamps();
+
+            $table->engine='InnoDB';
         });
     }
 
@@ -29,6 +31,6 @@ class CreateChatUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('chat_users');
+        Schema::dropIfExists('chatusers');
     }
 }
